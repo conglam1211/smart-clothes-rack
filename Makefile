@@ -5,11 +5,11 @@ CC := arm-none-eabi-gcc
 OBJCOPY := arm-none-eabi-objcopy
 
 CFLAGS := -mcpu=cortex-m3 -mthumb -O1 -g -nostdlib \
-          -I. -Iapp/inc \
+          -I. -Iapp/inc -Ihal/inc \
           -I$(RTOS_DIR)/include \
           -I$(RTOS_DIR)/portable/GCC/ARM_CM3
 
-SOURCES := startup.c \
+SOURCES := startup.c hal/src/hardware.c \
            app/src/main.c \
            $(RTOS_DIR)/tasks.c \
            $(RTOS_DIR)/queue.c \
